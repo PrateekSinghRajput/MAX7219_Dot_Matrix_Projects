@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Uri Shaked, Anderson Costa",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 120, "left": 80, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "m1",
+      "top": 20,
+      "left": 115,
+      "attrs": { "chain": "4" }
+    },
+    { "type": "wokwi-ds1307", "id": "ds1307", "top": 254.03, "left": 380, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": 122.35,
+      "left": 398.34,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "uno:GND.1", "m1:GND", "black", [ "v-12", "*", "h30" ] ],
+    [ "uno:10", "m1:CS", "green", [ "v-24", "*", "h22" ] ],
+    [ "uno:11", "m1:DIN", "orange", [ "v-20", "*", "h26" ] ],
+    [ "uno:13", "m1:CLK", "blue", [ "v-16", "*", "h18" ] ],
+    [ "uno:GND.3", "ds1307:GND", "black", [ "v20", "*", "h-30" ] ],
+    [ "uno:5V", "ds1307:5V", "red", [ "v35", "*", "h-15" ] ],
+    [ "uno:A4", "ds1307:SDA", "orange", [ "v30", "*", "h-20" ] ],
+    [ "uno:A5", "ds1307:SCL", "purple", [ "v25", "*", "h-25" ] ],
+    [ "uno:2", "dht:SDA", "yellow", [ "v0", "h0", "*", "h-50", "v5" ] ],
+    [ "uno:5V", "m1:V+", "red", [ "v35.21", "h247.23", "v-310.74" ] ],
+    [ "uno:5V", "dht:VCC", "red", [ "v35.11", "h247.22", "v-95.82", "h-80.12" ] ],
+    [ "uno:GND.3", "dht:GND", "black", [ "v20.24", "h101.02", "v-85", "h89.21" ] ]
+  ]
+}
